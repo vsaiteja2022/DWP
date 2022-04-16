@@ -30,7 +30,7 @@ export class PlaygroundComponent implements OnInit {
       .pipe(debounceTime(1500), distinctUntilChanged())
       .subscribe((newCityName) => {
         this.userQuery = newCityName;
-        if (newCityName.length > 1) {
+        if (newCityName.length > 1 || +newCityName > 1) {
           if (!isNaN(+newCityName)) {
             this.calculateDistance();
           } else {
@@ -64,9 +64,7 @@ export class PlaygroundComponent implements OnInit {
    */
   getUserDetails(id?: number) {
     this.apiService.getUserDetailsByID(id).subscribe((user) => {
-      console.log(user);
       this.allUsers = [user];
-      console.log(this.allUsers);
     });
   }
 
