@@ -1,0 +1,23 @@
+.app-portal {
+    .app-min-height {
+        min-height: 70vh;
+    }
+    .app-list {
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-align: left;
+        margin-bottom: 2%;
+    }
+    .cityName {
+        border: none;
+        appearance: none;
+        padding: 12px;
+        border-radius: 5px;
+        width: 250px;
+        font-size: 14px;
+    }
+    .headerBlock {
+        display: flex;
+        justify-content: flex-start;
+    }
+}

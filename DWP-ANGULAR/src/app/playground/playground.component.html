@@ -1,0 +1,54 @@
+<div class="app-portal" fxLayout="column" fxFlexFill>
+  <p-panel header="DWP TASK">
+    <p-dataView
+      #selectedCity
+      [value]="allUsers"
+      [paginator]="true"
+      [rows]="20"
+      filterBy="last_name"
+    >
+      <ng-template class="headerBlock" pTemplate="header">
+        <input
+          class="cityName"
+          type="search"
+          [(ngModel)]="userQuery"
+          (ngModelChange)="$userQuery.next($event)"
+          pInputText
+          placeholder="Fetch user by City name or Miles"
+        />
+        <input
+          #userid
+          class="cityName"
+          type="search"
+          [(ngModel)]="userID"
+          pInputText
+          placeholder="Set user ID, click Button to retrive"
+        />
+        <button
+          *ngIf="userid.value"
+          pButton
+          type="button"
+          class="p-button-raised p-button-rounded"
+          label="User Details"
+          (click)="getUserDetails(userid.value)"
+        ></button>
+      </ng-template>
+      <ng-template let-user pTemplate="listItem">
+        <div class="p-col-12 p-md-3">
+          <div class="app-list">
+            <div>
+              <span style="font-weight: 600">user ID:</span> {{ user.id }}
+            </div>
+            <div><span>First Name:</span> {{ user.first_name }}</div>
+            <div><span>Last Name:</span> {{ user.last_name }}</div>
+            <div><span>Email:</span> {{ user.email }}</div>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template let-item pTemplate="paginatordropdownitem">
+        {{ item.value }} - per page
+      </ng-template>
+    </p-dataView>
+  </p-panel>
+</div>
