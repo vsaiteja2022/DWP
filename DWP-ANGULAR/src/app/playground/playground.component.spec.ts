@@ -17,7 +17,7 @@ describe('PortalComponent', () => {
           provide: ConfigService,
           useValue: {
             fetchUsersList: jasmine.createSpy('fetchUsersList').and.returnValue(of([])),
-            getUserDetailsByID: jasmine.createSpy('getUserDetailsByID'),
+            getUserDetailsByID: jasmine.createSpy('getUserDetailsByID').and.returnValue(of([])),
             resolveQuery: jasmine
                   .createSpy('resolveQuery')
                   .and.returnValue(of([])),
@@ -41,14 +41,13 @@ describe('PortalComponent', () => {
   });
 
   describe('when initialized', () => {
-  
+
     it('should call fetchUsersList #ConfigService', () => {
       expect(askService.fetchUsersList).toHaveBeenCalled();
     });
 
     it('should NOT call resolveQuery #ConfigService', () => {
       expect(askService.resolveQuery).not.toHaveBeenCalled();
-    })
+    });
   });
-
 });

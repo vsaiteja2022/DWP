@@ -116,6 +116,18 @@ export class PlaygroundComponent implements OnInit {
   }
 
   /**
+   * Helps user to see all users details.
+   *
+   * @public
+   */
+  initialState(): void {
+    this.userQuery = undefined;
+    this.userID = undefined;
+    
+    this.allUsers = this.fetchAllUsers_BKUP;
+  }
+
+  /**
    * Makes GET request with userQuery to retrives the users that belongs to.
    * userQuery => It takes either string(Location) or number(Miles).
    *

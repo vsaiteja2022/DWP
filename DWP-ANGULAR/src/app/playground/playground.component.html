@@ -14,7 +14,8 @@
           [(ngModel)]="userQuery"
           (ngModelChange)="$userQuery.next($event)"
           pInputText
-          placeholder="Fetch user by City name or Miles"
+          style="margin-right: 15px"
+          placeholder="Fetch user by City name or Miles - AUTO LOADS PAGE"
         />
         <input
           #userid
@@ -26,13 +27,25 @@
           style="margin-right: 5px"
         />
         <button
-          *ngIf="userid.value"
+          id="btnTest"
+          *ngIf="userID"
           pButton
           type="button"
           class="p-button-raised p-button-rounded"
           label="User Details"
           (click)="getUserDetails(userid.value)"
         ></button>
+
+        <div style="margin-top: 15px; display: flex; justify-content: flex-end;">
+          <button
+            id="btnTest"
+            pButton
+            type="button"
+            class="p-button-raised p-button-rounded"
+            label="Refresh Details"
+            (click)="initialState()"
+          ></button>
+        </div>
       </ng-template>
       <ng-template let-user pTemplate="listItem">
         <div class="p-col-12 p-md-3">

@@ -19,7 +19,7 @@ describe('NotFoundComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create NotFound Component for any unknown routes', () => {
     expect(component).toBeTruthy();
   });
 });
